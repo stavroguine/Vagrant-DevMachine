@@ -31,7 +31,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y build-essential
 
 #git
-sudo apt-get install git
+sudo apt-get -y install git
 
 #user
 sudo useradd -m -p $(openssl passwd -1 root) orwell
