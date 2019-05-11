@@ -1,0 +1,5 @@
+.idea
+.vagrant
+shared/*
+!shared/.gitkeep
+ubuntu-xenial-16.04-cloudimg-console.log
