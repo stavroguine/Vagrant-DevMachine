@@ -33,43 +33,6 @@ class Artyom
                 vb.gui = true
             end
         end
-		
-		# Standardize Ports Naming Schema
-        if (settings.has_key?("ports"))
-            settings["ports"].each do |port|
-                port["guest"] ||= port["to"]
-                port["host"] ||= port["send"]
-                port["protocol"] ||= "tcp"
-            end
-        else
-            settings["ports"] = []
-        end
-
-        # Default Port Forwarding
-        default_ports = {
-            80 => 80,
-            443 => 443,
-            3000 => 3000,
-            3001 => 3001,
-        }
-
-        # Use Default Port Forwarding Unless Overridden
-        unless settings.has_key?("default_ports") && settings["default_ports"] == false
-            default_ports.each do |guest, host|
-                unless settings["ports"].any? { |mapping| mapping["guest"] == guest }
-                    config.vm.network "forwarded_port", guest: guest, host: host, auto_correct: true
-                end
-            end
-        end
-		
-		
-		
-		        # Add Custom Ports From Configuration
-        if settings.has_key?("ports")
-            settings["ports"].each do |port|
-                config.vm.network "forwarded_port", guest: port["guest"], host: port["host"], protocol: port["protocol"], auto_correct: true
-            end
-        end
 
         # Configure The Public Key For SSH Access
         if settings.include? 'authorize'
@@ -144,5 +107,10 @@ class Artyom
         end
 
 	end
+	
+		#copy proper config files
+	Vagrant.configure("2") do |config|
+		config.vm.provision "file", source: "config/.bashrc", destination: ".bashrc"
+end
 
 end

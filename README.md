@@ -15,7 +15,7 @@
 
 ## Install
 
-Navigate to project directory and edit `ogpv4Api.yaml` with your proper IP and shared directory. Then :
+Navigate to project directory and edit `artyom.yaml` with your proper IP and shared directory. Then :
 
  `vagrant up`
  
