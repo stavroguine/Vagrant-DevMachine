@@ -7,6 +7,8 @@
 * Php 7.3
 * NodeJS 10
 * Git
+* yarn
+* Samba 
 
 ## Requirements
 

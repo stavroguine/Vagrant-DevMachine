@@ -10,6 +10,3 @@ authorize: ~/.ssh/id_rsa.pub
 keys:
     - ~/.ssh/id_rsa
 
-folders:
-    - map: shared
-      to: /opt
