@@ -82,7 +82,8 @@ class Artyom
 		#copy proper config files
 	Vagrant.configure("2") do |config|
 		config.vm.provision "file", source: "config/.bashrc", destination: ".bashrc"
-		config.vm.provision "file", source: "config/smb.conf", destination: "smb.conf"
+		config.vm.provision "file", source: "config/000-default.conf", destination: "000-default.conf"
+		config.vm.provision "file", source: "config/apache2.conf", destination: "apache2.conf"
 end
 
 end

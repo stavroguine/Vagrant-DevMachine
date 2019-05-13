@@ -19,6 +19,9 @@ sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirrors.dotsrc.org
 echo "Installing apache2..."
 sudo apt update -y
 sudo apt install apache2 apache2-utils
+sudo service apache2 stop
+sudo mv -f /etc/apache2/sites-availables/000-default.conf /etc/apache2/sites-availables/000-default.conf.back
+sudo mv -f /etc/apache2/apache2.conf /etc/apache2/apache2.conf.back
 echo "Installing apache2... DONE"
 
 #mariadb
@@ -60,7 +63,6 @@ sudo service sshd restart
 #yarn
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
-
 #initial config
 echo "Processing initial config..."
 sudo rm -rf /home/orwell/.bashrc
@@ -69,5 +71,8 @@ sudo mv -f /home/vagrant/.yarn /home/orwell/.yarn
 sudo mv -f /home/vagrant/smb.conf /etc/samba/smb.conf
 sudo mkdir /opt/shared
 sudo chmod -R 777 /opt/shared
+sudo mv -f /home/vagrant/000-default.conf /etc/apache2/sites-availables/000-default.conf
+sudo mv -f /home/vagrant/apache2.conf /etc/apache2/apache2.conf
+sudo service apache2 restart
 sudo /etc/init.d/samba start
 echo "Processing initial config... DONE"
