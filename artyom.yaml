@@ -1,6 +1,6 @@
 
 ---
-ip: "192.168.0.140" 
+ip: "10.3.253.252" 
 memory: 2048
 cpus: 1
 provider: virtualbox
