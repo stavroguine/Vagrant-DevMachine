@@ -14,6 +14,7 @@ class Artyom
 
         # Configure The Box
         config.vm.define settings["name"] ||= "artyom"
+		config.vm.hostname = "artyom"
         config.vm.box = settings["box"] ||= "debian/stretch64"
 		config.vm.box_url = "https://vagrantcloud.com/debian/stretch64"
 
