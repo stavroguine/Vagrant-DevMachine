@@ -84,6 +84,7 @@ class Artyom
 		config.vm.provision "file", source: "config/.bashrc", destination: ".bashrc"
 		config.vm.provision "file", source: "config/000-default.conf", destination: "000-default.conf"
 		config.vm.provision "file", source: "config/apache2.conf", destination: "apache2.conf"
+		config.vm.provision "file", source: "config/smb.conf", destination: "smb.conf"
 end
 
 end
