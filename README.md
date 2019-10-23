@@ -17,7 +17,11 @@
 
 ## Install
 
+
 Navigate to project directory and edit `artyom.yaml` with your proper IP and shared directory. Then :
 
  `vagrant up`
  
+ In case of rsync errors :
+ 
+ `vagrant plugin install vagrant-vbguest`
